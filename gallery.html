@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .img-container {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 600%;
+            height: 400%;
+            object-fit: cover;
+        }
+
+        .img-container .desc {
+            position: absolute;
+            bottom: 100;
+            left: 50;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 14px;
+            display: none;
+        }
+
+        .img-container:hover .desc {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Image Gallery</h1>
+    <div class="container">
+        <div class="img-container">
+            <img src="image1.jpg" alt="Image 1">
+            <div class="desc">Image 1 Description</div>
+        </div>
+        <div class="img-container">
+            <img src="image2.jpg" alt="Image 2">
+            <div class="desc">Image 2 Description</div>
+        </div>
+        <div class="img-container">
+            <img src="image3.jpg" alt="Image 3">
+            <div class="desc">Image 3 Description</div>
+        </div>
+        <!-- Add
