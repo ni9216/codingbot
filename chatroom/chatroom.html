@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Chat Room</title>
+        <style>
+            /* CSS styles for the chat room */
+    .chat-container {
+      width: 400px;
+      height: 500px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: scroll;
+    }
+    .message {
+      margin-bottom: 10px;
+    }
+    .message .sender {
+      font-weight: bold;
+    }
+    .message .time {
+      font-size: 0.8em;
+      color: #888;
+    }
+    .input-container {
+      margin-top: 10px;
+    }
+    .input-container input[type="text"] {
+      width: 300px;
+      padding: 5px;
+    }
+    .input-container input[type="submit"] {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    // JavaScript code for the chat room functionality
+    function sendMessage() {
+      var messageInput = document.getElementById('message-input');
+      var message = messageInput.value;
+      if (message.trim() !== '') {
+        var chatContainer = document.getElementById('chat-container');
+        var newMessage = document.createElement('div');
+        newMessage.className = 'message';
+        newMessage.innerHTML = '<span class="sender">You:</span> ' + message + '<span class="time">' + getCurrentTime() + '</span>';
+        chatContainer.appendChild(newMessage);
+        messageInput.value = '';
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+    }
+
+    function getCurrentTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      var time = hours + ':' + minutes + ' ' + ampm;
+      return time;
+    }
+  </script>
+</head>
+<body>
+  <div id="chat-container" class="chat-container">
+    <!-- Chat messages will be dynamically added here -->
+  </div>
+  <div class="input-container">
+    <input type="text" id="message-input" placeholder="Type your message...">
+    <input type="submit" value="Send" onclick="sendMessage()">
+  </div>
+</body>
+</html>
+
+        </style>
+    </head>
+</html>
